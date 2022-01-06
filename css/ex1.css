@@ -9,44 +9,6 @@ body {
     background-size: cover;
 }
 
-/* 내가 한 부분 */
-/* nav {
-    font-size: 19.2px;
-    font-weight: bold;
-    position: relative;
-}
-
-nav ul {
-    list-style: none;
-}
-
-nav ul li {
-    background-color: #34495e;
-    border-bottom: 1px solid #576979;
-    height: 50px;
-    text-align: center;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-#mobile_btn {
-    background-color: #283744;
-    height: 50px;
-}
-
-#mobile_btn img {
-    width: 30px;
-}
-
-#mobile_btn:hover {
-    cursor: pointer;
-} */
-
-
-
 /* 글로벌 내비게이션 메뉴 */
 nav {
     background-color: #34495e;

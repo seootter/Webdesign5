@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가변 이미지</title>
+    <style>
+        .img1 {
+            width: 300px;
+            height: 300px;
+        }
+
+        .img2 {
+            width: 100%;
+        }
+
+        .img3 {
+            /* img태그에 max-width:100% 를 지정하면 가변 이미지가 됨
+            원래 이미지의 너비 이상으로는 늘어나지 않음 */
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img class="img1" src="images/lime.jpg">
+    <img class="img2" src="images/lime.jpg">
+    <img class="img3" src="images/lime.jpg">
+
+</body>
+</html>
