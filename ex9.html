@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원 페이지 사이트(플러그인)</title>
+    <link rel="stylesheet" href="css/ex7.css">
+    <link rel="stylesheet" href="css/onepage-scroll.css">
+</head>
+<body>
+    <div id="container" class="main">
+        <header>
+            <h1>어디까지 가봤니?</h1>
+            <nav>
+                <ul>
+                    <li><a href="#eu">유럽</a></li>
+                    <li><a href="#us">미국</a></li>
+                    <li><a href="#ch">중국</a></li>
+                    <li><a href="#jp">일본</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="eu" class="page1">
+            <h2>Erpupe</h2>
+        </section>
+        <section id="us" class="page2">
+            <h2>United States</h2>
+        </section>
+        <section id="ch" class="page3">
+            <h2>China</h2>
+        </section>
+        <section id="jp" class="page4">
+            <h2>Japan</h2>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/jquery.onepage-scroll.js"></script>
+    <script>
+        $(".main").onepage_scroll({
+        sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
+        easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
+                                            // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+        animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
+        pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+        updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+        beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
+        afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
+        loop: true,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+        keyboard: true,                  // You can activate the keyboard controls
+        responsiveFallback: false,        // You can fallback to normal page scroll by defining the width of the browser in which
+                                            // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
+                                            // the browser's width is less than 600, the fallback will kick in.
+        direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".  
+        });
+    </script>
+
+    <script>
+        $("nav a").on("click", function() {
+            // 현재 클릭한 a 태그
+            let $a = $(this);
+
+            // 현재 클릭한 a태그와 연결된 태그의 아이디
+            let targetId = $a.attr("href");
+            // 현재 클릭한 a태그와 연결된 태그를 제이쿼리 문서 객체로 가져옴
+            let $target = $(targetId);
+
+            //  $target.offset() : $target 변수에 들어있는 태그의 페이지 내 x, y 좌표
+            let targetOffset = $target.offset();
+            // y 좌표만 저장
+            targetOffset = targetOffset.top;
+
+            $("html").animate({scrollTop: targetOffset}, 1000);
+
+            return false;
+        });
+
+    </script>
+</body>
+</html>
